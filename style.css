@@ -1,0 +1,139 @@
+/* Configurações gerais */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #f5f2f2;
+  font-family: Arial, sans-serif;
+}
+
+/* Cabeçalho */
+.cabecalho {
+  background-color: #7e3e1c;
+  padding: 15px 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+h1 {
+  color: #fff;
+  font-size: 24px;
+}
+
+.cabecalho-link {
+  color: #fff;
+  text-decoration: none;
+}
+
+/* Conteúdo principal */
+main {
+  flex: 1;
+  padding: 30px 25px;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 25px;
+  color: #333;
+}
+
+/* Organização dos cartões */
+.cartoes {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+/* Cartão */
+.cartao {
+  width: 260px;
+  height: 320px;
+  perspective: 1000px;
+}
+
+/* Parte interna que gira */
+.cartao-interno {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+/* Virada ao passar o mouse */
+.cartao:hover .cartao-interno {
+  transform: rotateY(180deg);
+}
+
+/* Frente e verso */
+.cartao-frente,
+.cartao-verso {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  backface-visibility: hidden;
+  overflow: hidden;
+  background-color: #fff;
+  text-align: center;
+}
+
+/* Imagens */
+.cartao-imagem {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+/* Textos dos cartões */
+.cartao-frente p,
+.cartao-verso p {
+  padding: 15px;
+  font-size: 16px;
+  line-height: 1.4;
+}
+
+/* Verso inicialmente invertido */
+.cartao-verso {
+  transform: rotateY(180deg);
+}
+
+/* Rodapé */
+footer {
+  background-color: #7e3e1c;
+  padding: 15px 25px;
+  color: #fff;
+  text-align: center;
+}
+
+/* Ajuste para telas pequenas */
+@media (max-width: 600px) {
+  .cabecalho {
+    padding: 15px;
+  }
+
+  main {
+    padding: 25px 15px;
+  }
+
+  .cartoes {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .cartao {
+    max-width: 100%;
+  }
+}
+.cartao.virado .cartao-interno {
+  transform: rotateY(180deg);
+}
